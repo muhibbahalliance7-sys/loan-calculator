@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Government Staff Loan Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Government Staff Loan Calculator</h2>
+
+<div class="form">
+  <label>DOB</label>
+  <input type="date" id="dob">
+
+  <label>Basic Salary (RM)</label>
+  <input type="number" id="basic" />
+
+  <label>Fixed Allowance (RM)</label>
+  <input type="number" id="allowance" />
+
+  <label>Existing Commitment (RM)</label>
+  <input type="number" id="commitment" />
+
+  <label>In-Transit Deduction (RM)</label>
+  <input type="number" id="inTransit" />
+
+  <label>Preferred Tenure (Years) – Optional</label>
+  <input type="number" id="tenure" />
+
+  <button onclick="calculate()">Calculate</button>
+</div>
+
+<table id="resultTable">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Status</th>
+      <th>Tenure</th>
+      <th>Max Loan (RM)</th>
+      <th>Monthly Installment (RM)</th>
+      <th>DSR</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script src="products.js"></script>
+<script src="calculator.js"></script>
+</body>
+</html>
