@@ -2,23 +2,25 @@ const products = [
   {
     name: "COSHARE 6.65%",
     dsr: 0.60,
-    minTenure: 1,
     maxTenure: 15,
-    retirementAge: 60
-  },
-  {
-    name: "COSHARE 8%",
-    dsr: 0.65,
-    minTenure: 1,
-    maxTenure: 12,
-    retirementAge: 58
-  },
-  {
-    name: "KOPRIMAS",
-    dsr: 0.70,
-    minTenure: 1,
-    maxTenure: 10,
-    retirementAge: 55
-  }
-  // 👉 ADD remaining products here
-];
+    retirementAge: 60,
+    rate: 0.0665,
+
+    calculate(data) {
+      const {
+        age,
+        income,
+        commitment,
+        inTransit,
+        preferredTenure
+      } = data;
+
+      // 1️⃣ Max deduction by DSR
+      const maxDeduction = income * this.dsr;
+
+      // 2️⃣ Available monthly amount
+      const available =
+        maxDeduction - commitment - inTransit;
+
+      if (available <= 0) {
+        return { status: "Not Eligible", reason:
